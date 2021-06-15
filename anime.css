@@ -122,19 +122,6 @@ tr:nth-child(even) {
 }
 
 
-/*install button*/
-
-.add-button {
-    position: relative;
-    bottom: 1px;
-    left: 1px;
-    margin: 2rem auto 1% 5%;
-    border: none;
-    border-radius: 5px;
-    background-color: #54C96D;
-    cursor: pointer;
-}
-
 
 /*scroll bar*/
 
