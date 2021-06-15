@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista de animes e mangás">
+    <meta name="author" content="Edivaldo">
 
     <link rel="stylesheet" href="./anime.css">
 
@@ -14,7 +16,7 @@
 <body>
     <!--Menu de navegação-->
     <nav>
-        <a href="#" id="menu_anime">Anime</a>
+        <a href="./index.html" id="menu_anime">Anime</a>
         <a href="#" id="menu_manga">Mangá</a>
     </nav>
 
@@ -26,7 +28,7 @@
     </div>
 
 
-    <p>Minha lista de <span>Mangás</span></p>
+    <h1>Minha lista de <span>Mangás</span></h1>
 
     <!--Tabela-->
     <table>
@@ -35,22 +37,32 @@
             <th>Autor</th>
         </tr>
         <tr>
-            <td><a href="#">One Piece</a></td>
+            <td><a href="./detalhe.html">One Piece</a></td>
             <td>Aiichiro Oda</td>
         </tr>
         <tr>
-            <td><a href="#">Fairy Tail</a></td>
+            <td><a href="./detalhe.html">Fairy Tail</a></td>
             <td>Mashima</td>
         </tr>
         <tr>
-            <td><a href="#">Noragami</a></td>
+            <td><a href="./detalhe.html">Noragami</a></td>
             <td>Hitome</td>
         </tr>
         <tr>
-            <td><a href="#">Overlord</a></td>
+            <td><a href="./detalhe.html">Overlord</a></td>
             <td>Naoyuki</td>
         </tr>
     </table>
+    
+    <!--Pagination-->
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a class="active" href="#">2</a>
+        <a href="#">3</a>
+
+        <a href="#">&raquo;</a>
+    </div>
 
 
 </body>

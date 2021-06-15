@@ -52,7 +52,7 @@ input[type="search"]{
 }
 
 /*paragrafo*/
-p{
+h1, p{
     background-color: rgba(220, 182, 125, 1);
     width: 70%;
     margin: 5% auto;
@@ -121,3 +121,38 @@ tr:nth-child(even) {
   border-bottom-right-radius: 5px;
 }
 
+
+/*install button*/
+
+.add-button {
+    position: relative;
+    bottom: 1px;
+    left: 1px;
+    margin: 2rem auto 1% 5%;
+    border: none;
+    border-radius: 5px;
+    background-color: #54C96D;
+    cursor: pointer;
+}
+
+
+/*scroll bar*/
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:rgba(220, 182, 125, 0.85); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(220, 182, 125, 1); 
+  }

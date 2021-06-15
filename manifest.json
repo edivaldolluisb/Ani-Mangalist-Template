@@ -1,0 +1,23 @@
+{
+    "name": "Ani-Manga.list",
+    "short_name": "AM.List",
+    "start_url": "./index.html",
+    "display":"standalone",
+    "background_color":"#ffffff",
+    "theme_color":"#ffffff",
+    "theme-color": "#ffffff",
+    "description": "Lista de Animes de Mangas",
+    "icons": [
+        {
+          "src": "icones/icons8-naruto-sign-210.png",
+          "type": "image/png",
+          "sizes": "210x210"
+        },
+        {
+          "src": "icones/icons8-naruto-sign-512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+    ]
+
+}
