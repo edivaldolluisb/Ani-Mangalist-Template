@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+body{
+    background-image: url(./imagens/haikkyu.jpg);
+    background-color: #4b3e3eb2; /* Used if the image is unavailable */ 
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+
+}
+nav {
+    margin: 10% auto 15% 4%;
+      
+}
+#menu_manga{
+    margin-left: 05%;
+}
+nav a {
+    text-decoration: none;
+    background-color: #ffffff;
+    padding: 2%;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #000000;
+   
+}
+#menu_anime{
+    background-color: #54C96D;
+}
+
+/*bara de pesquisa*/
+
+#div_de_pesquisa{
+    width: 100%;
+    display: flex;
+    
+}
+form{
+    margin: auto;
+    width: 70%; 
+}
+input[type="search"]{
+    border-style: none;
+    width: 100%;
+    padding: 1%;
+
+    
+}
+
+/*paragrafo*/
+p{
+    background-color: rgba(220, 182, 125, 1);
+    width: 70%;
+    margin: 5% auto;
+    padding: 0.5%;
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+}
+span{
+    color: rgba(52, 164, 76, 1);
+    font-size: 30px;
+
+}
+
+/*tabela*/
+table{
+    width: 70%;
+    margin: 3% auto 5vh auto;
+    border-collapse: collapse;background-color: rgba(255, 255, 255, 0.85);
+}
+td{
+    text-align: center;
+}
+tr a{
+    text-decoration: none;
+    color: #000000;
+}
+th{
+    background-color: rgba(220, 182, 125, 1);
+}
+tr:nth-child(even) {
+    background-color: rgba(220, 182, 125, 0.85);
+
+}
+
+/*paginação*/
+.pagination {
+  display: inline-block;
+  background-color:rgba(255, 255, 255, 0.85);
+  margin: auto auto auto 5%;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: none;
+}
+
+.pagination a.active {
+  background-color: rgba(52, 164, 76);
+  color: white;
+  border: 1px solid rgba(52, 164, 76);
+}
+
+.pagination a:hover:not(.active) {background-color: rgba(220, 182, 125,0.85);}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+

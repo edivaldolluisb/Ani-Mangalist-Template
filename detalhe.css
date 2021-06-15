@@ -1,0 +1,17 @@
+body{
+    background-image: url(./imagens/lufy.jpg);
+    background-color: #4b3e3eb2; /* Used if the image is unavailable */ 
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+
+}
+img{
+    margin: 20% auto auto 15%;
+    max-width: 50%;
+}
+p{
+    background-color: white;
+    padding: 1%;
+    border-radius: 5px;
+}
