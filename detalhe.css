@@ -14,4 +14,7 @@ p{
     background-color: white;
     padding: 1%;
     border-radius: 5px;
+    text-align: justify;
+    margin: 2em auto 10em 15%;
+    max-width: 50%;
 }
