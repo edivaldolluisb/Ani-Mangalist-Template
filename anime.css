@@ -52,7 +52,7 @@ input[type="search"]{
 }
 
 /*paragrafo*/
-h1{
+h1, p{
     background-color: rgba(220, 182, 125, 1);
     width: 70%;
     margin: 5% auto;

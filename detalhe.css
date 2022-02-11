@@ -18,7 +18,3 @@ div{
     margin: 2em auto 10em 15%;
     max-width: 50%;
 }
-div p:first-of-type{
-    font-weight: bold;
-    font-size: 1.3em;
-}
