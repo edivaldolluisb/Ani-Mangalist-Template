@@ -75,6 +75,26 @@
 
     <!--PWA-->
     <script src="./sw.js"></script>
+
+    <script>
+        
+        function buildList() {
+            var tabela = document.querySelector('tbody')
+
+            var url = 'http://127.0.0.1:8000/anime-list/'
+
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log('Data:', data)
+
+                    
+                })
+        }
+        buildList()
+
+
+    </script>
 </body>
 
 </html>
