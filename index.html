@@ -42,7 +42,7 @@
             </tr>
         </thead>
         <tbody id="corpo_tabela_animes">
-            
+
             <tr>
                 <td><a href="./detalhe.html">One Piece</a></td>
                 <td>Aiichiro Oda</td>
@@ -58,7 +58,7 @@
             <tr>
                 <td><a href="./detalhe.html">Overlord</a></td>
                 <td>Naoyuki</td>
-            </tr> 
+            </tr>
         </tbody>
 
 
@@ -93,14 +93,36 @@
                     console.log('Data:', data)
                     var anime = data
                     for (let i in anime) {
-                        tabela.innerHTML += `<tr><td>${anime[i].nome}</td><td>Aiichiro Oda</td> </tr>`
+                        tabela.innerHTML += `<tr><td>${anime[i].nome}</td><td>${anime[i].autor}</td> </tr>`
                     }
 
 
                 })
+
         }
 
         buildList()
+
+        function autorList() {
+
+            var autor_url = 'http://127.0.0.1:8000/autor-list/'
+
+            fetch(autor_url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log('Data:', data)
+                    var autor = data
+
+                    /* função para pegar autor*/
+                    for (let i in autor) {
+                        if (autor[i].id == 5) {
+                            console.log` autor :${autor[i].nome}`
+
+                        }
+                    }
+                })
+        }
+        autorList()
 
 
     </script>
