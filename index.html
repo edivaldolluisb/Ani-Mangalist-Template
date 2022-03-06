@@ -41,7 +41,8 @@
                 <th>Autor</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="corpo_tabela_animes">
+            
             <tr>
                 <td><a href="./detalhe.html">One Piece</a></td>
                 <td>Aiichiro Oda</td>
@@ -57,7 +58,7 @@
             <tr>
                 <td><a href="./detalhe.html">Overlord</a></td>
                 <td>Naoyuki</td>
-            </tr>
+            </tr> 
         </tbody>
 
 
@@ -77,9 +78,12 @@
     <script src="./sw.js"></script>
 
     <script>
-        
+
         function buildList() {
-            var tabela = document.querySelector('tbody')
+            var tabela = document.querySelector('table > tbody');
+            tabela.innerHTML += '<tr><td>One Piece</td><td>Aiichiro Oda</td> </tr>'
+
+
 
             var url = 'http://127.0.0.1:8000/anime-list/'
 
@@ -87,10 +91,15 @@
                 .then((resp) => resp.json())
                 .then(function (data) {
                     console.log('Data:', data)
+                    var anime = data
+                    for (let i in anime) {
+                        tabela.innerHTML += `<tr><td>${anime[i].nome}</td><td>Aiichiro Oda</td> </tr>`
+                    }
 
-                    
+
                 })
         }
+
         buildList()
 
 
