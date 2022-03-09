@@ -23,7 +23,7 @@
     </nav>
 
     <!--imagem-->
-    <img  id="imagem_anime" src="./imagens/haikkyu.jpg" alt="">
+    <img id="imagem_anime" src="./imagens/haikkyu.jpg" alt="">
 
     <!--dados-->
     <div>
@@ -35,7 +35,20 @@
 
     <script>
 
-        function buildDetail() {
+        const params = new URLSearchParams(window.location.search);
+
+        const id = params.get("id");
+        const tipo = params.get("tipo");
+
+        console.log(id, tipo);
+        if (tipo == 'anime') {
+            buildanimeDetail(id)
+        } else {
+            buildmangaDetail(id)
+        }
+
+
+        function buildanimeDetail(id) {
 
             var nome_anime, nome_autor, ano_lancamento, nome_estudio
             var imagem_anime = document.querySelector('#imagem_anime')
@@ -44,11 +57,10 @@
             ano_lancamento = document.querySelector('#ano_lancamento')
             nome_estudio = document.querySelector('#nome_estudio')
 
-            const params = new URLSearchParams(window.location.search);
-
-            const id = params.get("id");
-
-            console.log(id);
+            //const params = new URLSearchParams(window.location.search);
+            //const id = params.get("id");
+            //const tipo = params.get("tipo");
+            //console.log(id, tipo);
 
 
             var url = `http://127.0.0.1:8000/anime-detail/${id}/`
@@ -58,31 +70,79 @@
                 .then(function (data) {
                     console.log('Data:', data)
                     var anime = data
-                    
-                    imagem_anime.src = anime.imagem_url
-                    nome_anime.innerHTML = anime.nome
-                    nome_autor.innerHTML = anime.autor.nome
-                    ano_lancamento.innerHTML = anime.ano_lancamento
-                    
 
+                    //verficar se o anime tem imagem
+                    if (anime.imagem_url != '') {
+                        imagem_anime.src = anime.imagem_url
+                        console.log(anime.imagem_url)
+                    }
+
+                    nome_anime.innerHTML = anime.nome
+                    nome_autor.innerHTML += anime.autor.nome
+                    ano_lancamento.innerHTML += anime.ano_lancamento
+
+                    // pegar os estudios
                     console.log(anime.estudio)
                     for (let _estudio in anime.estudio) {
                         //console.log(anime.estudio[_estudio].nome)
                         if (_estudio != 0) {
                             nome_estudio.innerHTML += `, ${anime.estudio[_estudio].nome}`
-                        }else{
+                        } else {
                             nome_estudio.innerHTML += anime.estudio[_estudio].nome
                         }
-                        
+
                     }
-                    
+
 
 
                 })
 
         }
 
-        buildDetail()
+
+        function buildmangaDetail(id) {
+
+            var nome_manga, nome_autor, ano_lancamento, nome_estudio
+            var imagem_anime = document.querySelector('#imagem_anime')
+            nome_manga = document.querySelector('#nome_anime')
+            nome_autor = document.querySelector('#nome_autor')
+            ano_lancamento = document.querySelector('#ano_lancamento')
+            nome_estudio = document.querySelector('#nome_estudio')
+
+            //const params = new URLSearchParams(window.location.search);
+            //const id = params.get("id");
+            //const tipo = params.get("tipo");
+            //console.log(id, tipo);
+
+
+            var url = `http://127.0.0.1:8000/manga-detail/${id}/`
+
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log('Data:', data)
+                    var manga = data
+
+                    //verficar se o manga tem imagem
+                    if (manga.imagem_url != '') {
+                        imagem_anime.src = manga.imagem_url
+                        console.log(manga.imagem_url)
+                    }
+
+                    nome_manga.innerHTML = manga.nome
+                    nome_autor.innerHTML += manga.autor.nome
+                    ano_lancamento.innerHTML += manga.ano_lancamento
+
+                    // pegar os estudios
+                    nome_estudio.innerHTML = 'Eu geralmente não leio bosta, então aproveite a leitura 😁'
+
+
+
+                })
+
+        }
+
+
 
 
     </script>
