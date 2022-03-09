@@ -93,7 +93,7 @@
                     console.log('Data:', data)
                     var anime = data
                     for (let i in anime) {
-                        tabela.innerHTML += `<tr><td>${anime[i].nome}</td><td>${anime[i].autor.nome}</td> </tr>`
+                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}">${anime[i].nome} aaa</a></td><td>${anime[i].autor.nome}</td> </tr>`
                     }
 
 

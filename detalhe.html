@@ -23,17 +23,71 @@
     </nav>
 
     <!--imagem-->
-    <img src="./imagens/haikkyu.jpg" alt="">
+    <img  id="imagem_anime" src="./imagens/haikkyu.jpg" alt="">
 
     <!--dados-->
     <div>
-        <p>One Piece</p>
-        <p>Autor: Eiichiro Oda</p>
-        <p>Ano de lançamento: 1999</p>
-        <p>Estudio: Toei Animation</p>
+        <p id="nome_anime">One Piece</p>
+        <p id="nome_autor">Autor: Eiichiro Oda</p>
+        <p id="ano_lancamento">Ano de lançamento: 1999</p>
+        <p id="nome_estudio">Estudio: Toei Animation</p>
     </div>
 
-    
+    <script>
+
+        function buildDetail() {
+
+            var nome_anime, nome_autor, ano_lancamento, nome_estudio
+            var imagem_anime = document.querySelector('#imagem_anime')
+            nome_anime = document.querySelector('#nome_anime')
+            nome_autor = document.querySelector('#nome_autor')
+            ano_lancamento = document.querySelector('#ano_lancamento')
+            nome_estudio = document.querySelector('#nome_estudio')
+
+            const params = new URLSearchParams(window.location.search);
+
+            const id = params.get("id");
+
+            console.log(id);
+
+
+            var url = `http://127.0.0.1:8000/anime-detail/${id}/`
+
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function (data) {
+                    console.log('Data:', data)
+                    var anime = data
+                    
+                    imagem_anime.src = anime.imagem_url
+                    nome_anime.innerHTML = anime.nome
+                    nome_autor.innerHTML = anime.autor.nome
+                    ano_lancamento.innerHTML = anime.ano_lancamento
+                    
+
+                    console.log(anime.estudio)
+                    for (let _estudio in anime.estudio) {
+                        //console.log(anime.estudio[_estudio].nome)
+                        if (_estudio != 0) {
+                            nome_estudio.innerHTML += `, ${anime.estudio[_estudio].nome}`
+                        }else{
+                            nome_estudio.innerHTML += anime.estudio[_estudio].nome
+                        }
+                        
+                    }
+                    
+
+
+                })
+
+        }
+
+        buildDetail()
+
+
+    </script>
+
+
 
 
 </body>
