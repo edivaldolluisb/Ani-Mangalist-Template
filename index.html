@@ -43,7 +43,7 @@
         </thead>
         <tbody id="corpo_tabela_animes">
 
-            <tr>
+            <!--<tr>
                 <td><a href="./detalhe.html">One Piece</a></td>
                 <td>Aiichiro Oda</td>
             </tr>
@@ -58,7 +58,7 @@
             <tr>
                 <td><a href="./detalhe.html">Overlord</a></td>
                 <td>Naoyuki</td>
-            </tr>
+            </tr>-->
         </tbody>
 
 
@@ -81,7 +81,6 @@
 
         function buildList() {
             var tabela = document.querySelector('table > tbody');
-            tabela.innerHTML += '<tr><td>One Piece</td><td>Aiichiro Oda</td> </tr>'
 
 
             //var url = 'http://127.0.0.1:8000/anime-list/'
@@ -93,7 +92,7 @@
                     console.log('Data:', data)
                     var anime = data
                     for (let i in anime) {
-                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome} aaa</a></td><td>${anime[i].autor.nome}</td> </tr>`
+                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
                     }
 
 

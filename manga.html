@@ -41,7 +41,7 @@
         </thead>
         <tbody id="corpo_tabela_animes">
 
-            <tr>
+            <!--<tr>
                 <td><a href="./detalhe.html">One Piece</a></td>
                 <td>Aiichiro Oda</td>
             </tr>
@@ -56,7 +56,7 @@
             <tr>
                 <td><a href="./detalhe.html">Overlord</a></td>
                 <td>Naoyuki</td>
-            </tr>
+            </tr>-->
         </tbody>
 
 
@@ -88,7 +88,7 @@
                     console.log('Data:', data)
                     var manga = data
                     for (let i in manga) {
-                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${manga[i].id}&tipo=manga">${manga[i].nome} aaa</a></td><td>${manga[i].autor.nome}</td> </tr>`
+                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${manga[i].id}&tipo=manga">${manga[i].nome}</a></td><td>${manga[i].autor.nome}</td> </tr>`
                     }
 
 
