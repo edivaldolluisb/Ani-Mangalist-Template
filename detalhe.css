@@ -6,15 +6,22 @@ body{
     background-size: cover;
 
 }
+#dados_detalhe{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+}
+
 img{
-    margin: 20% auto auto 15%;
-    max-width: 50%;
+    margin: auto;
+    max-width: 80%;
+    width: auto;
 }
 div{
     background-color: white;
-    padding: 1%;
     border-radius: 5px;
     text-align: justify;
-    margin: 2em auto 10em 15%;
-    max-width: 50%;
+    margin:5rem  auto;
+    max-width: 95%;
+    width: 80%;
 }
