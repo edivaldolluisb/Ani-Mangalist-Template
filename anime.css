@@ -98,9 +98,16 @@ tr:nth-child(even) {
 
 /*paginação*/
 .pagination {
-  display: inline-block;
+  display: flex;
+  justify-content: space-evenly;
   background-color:rgba(255, 255, 255, 0.85);
-  margin: auto auto auto 5%;
+  margin: auto auto 2rem;
+  width: fit-content;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  
 }
 
 .pagination a {
@@ -118,16 +125,6 @@ tr:nth-child(even) {
 }
 
 .pagination a:hover:not(.active) {background-color: rgba(220, 182, 125,0.85);}
-
-.pagination a:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.pagination a:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
 
 
 
