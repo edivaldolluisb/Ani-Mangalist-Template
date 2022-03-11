@@ -5,12 +5,14 @@
     margin: 0;
 }
 body{
+    background: #4b3e3eb2 url(./imagens/haikkyu.jpg) no-repeat fixed center;
+    background-size: cover;
+    /*
     background-image: url(./imagens/haikkyu.jpg);
-    background-color: #4b3e3eb2; /* Used if the image is unavailable */ 
+    background-color: #4b3e3eb2;
     background-repeat: no-repeat;
     background-attachment: fixed;  
-    background-size: cover;
-    background-position: center;
+    background-position: center;*/
 
 }
 nav {
