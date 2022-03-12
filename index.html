@@ -82,6 +82,19 @@
 
     <script>
 
+
+        // mudar url se não tiver 'pag'
+        const url2 = (window.location);
+
+        console.log(url2.search)
+        inclui = url2.search.includes('pag')
+        if (inclui == false) {
+            window.location = '?pag=1'
+        }
+
+        
+        // listar os dados
+
         function buildList() {
             var tabela = document.querySelector('table > tbody');
 
@@ -117,7 +130,7 @@
                         console.log(data)
                         tabela.innerHTML = ''
                         console.log('data33:', data)
-                        if(data.length == 0){
+                        if (data.length == 0) {
                             tabela.innerHTML += `<tr><td colspan="2">Nenhum anime encontrado</td></tr>`
                         }
                         listarAnime(data)
@@ -126,7 +139,7 @@
                     function searchTable(value, data) {
                         var filteredData = []
 
-                        for(var i=0; i < data.length; i++){
+                        for (var i = 0; i < data.length; i++) {
                             value = value.toLowerCase()
                             var name = data[i].nome.toLowerCase()
 
@@ -140,23 +153,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     // paginação
                     function paginacao(anime) {
                         /*paginação*/
@@ -166,14 +162,11 @@
                             }
                         }
 
-                        window.location.href + '?pag=1'
-
 
                         const params = new URLSearchParams(window.location.search);
 
                         const pag = parseInt(params.get("pag"));
                         console.log('pag', pag)
-                        console.log(typeof (pag))
 
                         var state = {
                             'querySet': anime,
