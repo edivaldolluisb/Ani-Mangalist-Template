@@ -89,16 +89,54 @@
                     /*for (let i in manga) {
                         tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${manga[i].id}&tipo=manga">${manga[i].nome}</a></td><td>${manga[i].autor.nome}</td> </tr>`
                     }*/
-
-                    paginacao(anime = manga)
-                    // paginação
-                    function paginacao(anime) {
-                        /*paginação*/
-                        function listarAnime(anime) {
+                    function listarAnime(anime) {
                             for (let i in anime) {
                                 tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=manga">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
                             }
                         }
+
+                    paginacao(anime = manga)
+
+
+                    
+                    // search bar
+
+                    $('#bara_de_pesquisa').on('keyup', function () {
+                        var value = $(this).val()
+                        var data = searchTable(value, manga)
+                        console.log('Value:', value)
+                        console.log(data)
+                        tabela.innerHTML = ''
+                        console.log('data33:', data)
+                        if (data.length == 0) {
+                            tabela.innerHTML += `<tr><td colspan="2">Nenhum anime encontrado</td></tr>`
+                        }
+                        listarAnime(data)
+                    })
+
+                    function searchTable(value, data) {
+                        var filteredData = []
+
+                        for (var i = 0; i < data.length; i++) {
+                            value = value.toLowerCase()
+                            var name = data[i].nome.toLowerCase()
+
+                            if (name.includes(value)) {
+                                filteredData.push(data[i])
+                            }
+                        }
+
+                        return filteredData
+                    }
+
+
+
+
+
+                    // paginação
+                    function paginacao(anime) {
+                        /*paginação*/
+                        listarAnime(anime)
 
                         window.location.href + '?pag=1'
 

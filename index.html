@@ -156,11 +156,7 @@
                     // paginação
                     function paginacao(anime) {
                         /*paginação*/
-                        function listarAnime(anime) {
-                            for (let i in anime) {
-                                tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
-                            }
-                        }
+                        listarAnime(anime)
 
 
                         const params = new URLSearchParams(window.location.search);
