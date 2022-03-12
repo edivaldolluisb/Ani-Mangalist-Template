@@ -67,18 +67,14 @@
     <!--Pagination-->
     <div class="pagination">
         <a href="#">&laquo;</a>
-        <span class="pagination-wrapper" style="font-size: 1em;"></span>
-        <!--<a href="#">1</a>
+        <a href="#">1</a>
         <a class="active" href="#">2</a>
-        <a href="#">3</a>-->
+        <a href="#">3</a>
         <a href="#">&raquo;</a>
     </div>
 
     <!--PWA-->
     <script src="./sw.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
 
@@ -94,102 +90,9 @@
                 .then(function (data) {
                     console.log('Data:', data)
                     var anime = data
-                    /*for (let i in anime) {
+                    for (let i in anime) {
                         tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
-                    }*/
-                    paginacao(anime = data)
-                    // paginação
-                    function paginacao(anime) {
-                        /*paginação*/
-                        function listarAnime(anime) {
-                            for (let i in anime) {
-                                tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
-                            }
-                        }
-
-                        window.location.href + '?pag=1'
-
-
-                        const params = new URLSearchParams(window.location.search);
-
-                        const pag = parseInt(params.get("pag"));
-                        console.log('pag', pag)
-                        console.log(typeof (pag))
-
-                        var state = {
-                            'querySet': anime,
-                            'page': pag,
-                            'rows': 5,
-                            'window': 3,
-                        }
-                        console.log('state', state.page)
-                        var AniPage = pagination(state.querySet, state.page, state.rows)
-                        listarAnime(anime = AniPage.querySet)
-
-                        console.log('AnimePagination:', AniPage)
-
-
-
-                        function pagination(querySet, page, rows) {
-                            var triStart = (page - 1) * rows
-                            var triEnd = triStart + rows
-
-                            var trimedData = querySet.slice(triStart, triEnd)
-
-                            var pages = Math.round(querySet.length / rows)
-
-                            return {
-                                'querySet': trimedData,
-                                'pages': pages,
-                            }
-                        }
-
-                        function pageButtons(pages) {
-                            var wrapper = document.querySelector('.pagination-wrapper')
-
-                            wrapper.innerHTML = ''
-
-                            var maxLeft = (state.page - Math.floor(state.window / 2))
-                            var maxRight = (state.page + Math.floor(state.window / 2))
-
-                            if (maxLeft < 1) {
-                                maxLeft = 1
-                                maxRight = state.window
-                            }
-                            if (maxRight > pages) {
-                                maxLeft = pages - (state.window - 1)
-                                maxRight = pages
-
-                                if (maxLeft < 1) {
-                                    maxLeft = 1
-                                }
-                            }
-
-                            for (let page = maxLeft; page <= maxRight; page++) {
-                                wrapper.innerHTML += `<a href="?pag=${page}" class='pagbtn'>${page}</a>`
-                            }
-                            document.querySelectorAll('.pagination > a')[0].href = '?pag=1'
-                            document.querySelectorAll('.pagination > a')[1].href = `?pag=${pages}`
-
-
-                        }
-                        pageButtons(AniPage.pages)
-                        $(".pagbtn").click(function () {
-                            tabela.innerHTML = ''
-                            state.page = pag;
-                            console.log('state', state.page)
-
-                            listarAnime(anime = AniPage.querySet);
-                        });
-                        $('.pagbtn').each(function () {
-
-                            if (pag == $(this).text()) {
-                                $(this).addClass('active')
-                            }
-                        });
                     }
-
-
 
 
                 })
@@ -197,99 +100,6 @@
         }
 
         buildList()
-
-        // paginação
-        function paginacao(anime) {
-            /*paginação*/
-            function listarAnime(anime) {
-                for (let i in anime) {
-                    tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
-                }
-            }
-
-            window.location.href + '?pag=1'
-
-
-            const params = new URLSearchParams(window.location.search);
-
-            const pag = parseInt(params.get("pag"));
-            console.log('pag', pag)
-            console.log(typeof (pag))
-
-            var state = {
-                'querySet': anime,
-                'page': pag,
-                'rows': 5,
-                'window': 3,
-            }
-            console.log('state', state.page)
-            var AniPage = pagination(state.querySet, state.page, state.rows)
-            listarAnime(anime = AniPage.querySet)
-
-            console.log('AnimePagination:', AniPage)
-
-
-
-            function pagination(querySet, page, rows) {
-                var triStart = (page - 1) * rows
-                var triEnd = triStart + rows
-
-                var trimedData = querySet.slice(triStart, triEnd)
-
-                var pages = Math.round(querySet.length / rows)
-
-                return {
-                    'querySet': trimedData,
-                    'pages': pages,
-                }
-            }
-
-            function pageButtons(pages) {
-                var wrapper = document.querySelector('.pagination-wrapper')
-
-                wrapper.innerHTML = ''
-
-                var maxLeft = (state.page - Math.floor(state.window / 2))
-                var maxRight = (state.page + Math.floor(state.window / 2))
-
-                if (maxLeft < 1) {
-                    maxLeft = 1
-                    maxRight = state.window
-                }
-                if (maxRight > pages) {
-                    maxLeft = pages - (state.window - 1)
-                    maxRight = pages
-
-                    if (maxLeft < 1) {
-                        maxLeft = 1
-                    }
-                }
-
-                for (let page = maxLeft; page <= maxRight; page++) {
-                    wrapper.innerHTML += `<a href="?pag=${page}" class='pagbtn'>${page}</a>`
-                }
-                document.querySelectorAll('.pagination > a')[0].href = '?pag=1'
-                document.querySelectorAll('.pagination > a')[1].href = `?pag=${pages}`
-
-
-            }
-            pageButtons(AniPage.pages)
-            $(".pagbtn").click(function () {
-                tabela.innerHTML = ''
-                state.page = pag;
-                console.log('state', state.page)
-
-                listarAnime(anime = AniPage.querySet);
-            });
-            $('.pagbtn').each(function () {
-
-                if (pag == $(this).text()) {
-                    $(this).addClass('active')
-                }
-            });
-        }
-
-
 
         /*
         function autorList() {
