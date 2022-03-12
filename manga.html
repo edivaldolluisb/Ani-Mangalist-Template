@@ -61,7 +61,7 @@
 
 
     </table>
-    
+
     <!--Pagination-->
     <div class="pagination">
         <a href="#">&laquo;</a>
@@ -73,7 +73,7 @@
     </div>
 
 
-    
+
     <script>
 
         function buildList() {
@@ -87,9 +87,48 @@
                 .then(function (data) {
                     console.log('Data:', data)
                     var manga = data
-                    for (let i in manga) {
-                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${manga[i].id}&tipo=manga">${manga[i].nome}</a></td><td>${manga[i].autor.nome}</td> </tr>`
+
+                    listarDados(manga)
+
+                    function listarDados(manga) {
+                        for (let i in manga) {
+                            tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${manga[i].id}&tipo=manga">${manga[i].nome}</a></td><td>${manga[i].autor.nome}</td> </tr>`
+                        }
                     }
+
+                    
+                    // search bar
+
+                    var searchbar = document.querySelector('#bara_de_pesquisa')
+                    searchbar.addEventListener('keyup', function() {
+                        var value = this.value
+                        var data = searchTable(value, manga)
+                        console.log('Value:', value)
+                        console.log(data)
+                        tabela.innerHTML = ''
+                        console.log('filtered:', data)
+                        if (data.length == 0) {
+                            tabela.innerHTML += `<tr><td colspan="2">Nenhum anime encontrado</td></tr>`
+                        }
+                        listarDados(data)
+                    })
+
+
+                    function searchTable(value, data) {
+                        var filteredData = []
+
+                        for (var i = 0; i < data.length; i++) {
+                            value = value.toLowerCase()
+                            var name = data[i].nome.toLowerCase()
+
+                            if (name.includes(value)) {
+                                filteredData.push(data[i])
+                            }
+                        }
+
+                        return filteredData
+                    }
+
 
 
                 })

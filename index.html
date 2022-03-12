@@ -90,9 +90,48 @@
                 .then(function (data) {
                     console.log('Data:', data)
                     var anime = data
-                    for (let i in anime) {
-                        tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
+
+                    listarDados(anime)
+
+                    function listarDados(anime) {
+                        for (let i in anime) {
+                            tabela.innerHTML += `<tr><td><a href="./detalhe.html?id=${anime[i].id}&tipo=anime">${anime[i].nome}</a></td><td>${anime[i].autor.nome}</td> </tr>`
+                        }
                     }
+
+                    // search bar
+
+                    var searchbar = document.querySelector('#bara_de_pesquisa')
+                    searchbar.addEventListener('keyup', function() {
+                        var value = this.value
+                        var data = searchTable(value, anime)
+                        console.log('Value:', value)
+                        console.log(data)
+                        tabela.innerHTML = ''
+                        console.log('filtered:', data)
+                        if (data.length == 0) {
+                            tabela.innerHTML += `<tr><td colspan="2">Nenhum anime encontrado</td></tr>`
+                        }
+                        listarDados(data)
+                    })
+
+
+                    function searchTable(value, data) {
+                        var filteredData = []
+
+                        for (var i = 0; i < data.length; i++) {
+                            value = value.toLowerCase()
+                            var name = data[i].nome.toLowerCase()
+
+                            if (name.includes(value)) {
+                                filteredData.push(data[i])
+                            }
+                        }
+
+                        return filteredData
+                    }
+
+
 
 
                 })
